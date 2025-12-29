@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-dnf install mysql -y
+dnf install mysqlffh -y
 
 if [ $? -eq 0 ]
 then
