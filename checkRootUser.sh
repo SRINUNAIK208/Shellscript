@@ -20,20 +20,20 @@ fi
   # exit 1
 #fi
 
-dnf list installed mysql
+dnf list installed nginx
 
 if [ $? -eq 0 ]
 then
-    echo "mysql package is installed"
+    echo "nginx package is installed"
 else
-    echo "mysql package is not installed"
-    dnf install mysql -y
+    echo "nginx package is not installed"
+    dnf install nginx -y
 
     if [ $? -eq 0 ]
     then
-       echo "mysql is installed success"
+       echo "nginx is installed success"
     else
-       echo "mysql is not installed"
+       echo "nginx is not installed"
        exit 1
     fi
     exit 1
