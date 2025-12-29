@@ -19,3 +19,12 @@ else
    echo "mysql is not installed"
    exit 1
 fi
+
+dnf list installed mysql
+
+if [ $? -eq 0 ]
+then
+    echo "mysql package is installed"
+else
+    echo "mysql package is not installed"
+fi
