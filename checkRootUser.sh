@@ -10,15 +10,15 @@ else
     exit 1
 fi
 
-dnf install mysql -y
+#dnf install mysql -y
 
-if [ $? -eq 0 ]
-then
-   echo "mysql is installed success"
-else
-   echo "mysql is not installed"
-   exit 1
-fi
+#if [ $? -eq 0 ]
+#then
+  # echo "mysql is installed success"
+#else
+  # echo "mysql is not installed"
+  # exit 1
+#fi
 
 dnf list installed mysql
 
@@ -27,4 +27,14 @@ then
     echo "mysql package is installed"
 else
     echo "mysql package is not installed"
+    dnf install mysql -y
+
+    if [ $? -eq 0 ]
+    then
+       echo "mysql is installed success"
+    else
+       echo "mysql is not installed"
+       exit 1
+    fi
+    exit 1
 fi
