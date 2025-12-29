@@ -10,15 +10,15 @@ else
     exit 1
 fi
 
-#dnf install mysql -y
-
-#if [ $? -eq 0 ]
-#then
-  # echo "mysql is installed success"
-#else
-  # echo "mysql is not installed"
-  # exit 1
-#fi
+VALIDATE(){
+      if [ $1 -eq 0 ]
+    then
+       echo "$2 is installed success"
+    else
+       echo "$2 is not installed"
+       exit 1
+    fi
+}
 
 dnf list installed nginx
 
@@ -28,13 +28,29 @@ then
 else
     echo "nginx package is not installed"
     dnf install nginx -y
+    VALIDATE $? "nginx"
+fi
 
-    if [ $? -eq 0 ]
-    then
-       echo "nginx is installed success"
-    else
-       echo "nginx is not installed"
-       exit 1
-    fi
-    exit 1
+
+dnf list installed mysql
+
+if [ $? -eq 0 ]
+then
+    echo "mysql package is installed"
+else
+    echo "mysql package is not installed"
+    dnf install mysql -y
+    VALIDATE $? "mysql"
+fi
+
+dnf list installed python3
+
+if [ $? -eq 0 ]
+then
+    echo "python3 package is installed"
+else
+    echo "python3 package is not installed"
+    dnf install python3 -y
+    VALIDATE $? "python3"
+   
 fi
