@@ -57,3 +57,12 @@ else
     echo -e "$R source $Destination directory is not exist $N"
     exit 1
 fi
+
+Files=$(find $Source -name "*.log" -mtime $Days)
+
+if [ z $Files ]
+then
+    echo -e " $Y no files are found $N"
+else
+    echo -e " $G files are found $N"
+fi
