@@ -1,7 +1,7 @@
 #/bin/bash
 
-Source="$1"
-Destination="$2"
+Source=$1
+Destination=$2
 Days=${3:-14}
 
 
