@@ -58,11 +58,11 @@ else
     exit 1
 fi
 
-Files=$(find $Source -name "*.log" -mtime $Days)
+Files=$(find $Source -name "*.log" -mtime +$Days)
 
-if [ ! -z $Files ]
+if [  -z $Files ]
 then
-    echo -e " $Y  files are found: $Files $N"
+    echo -e " $Y  no files are found: $N"
 else
-    echo -e " $G no files are found $N"
+    echo -e " $G files are found" $Files $N"
 fi
