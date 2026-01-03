@@ -65,4 +65,21 @@ then
     echo -e " $Y  no files are found: $N"
 else
     echo -e " $G files are found: $Files $N"
+    TimeStamp=$(date +%F-%H-%M-%S)
+    Zip_File="$Destination/app-log-$TimeStamp.zip"
+    echo $Files | zip -@ $Zip_File
+
+    if[ -f $Zip_File ]
+    then
+       echo -e "zip file created..$G successfully $N"
+       while IFS=read -r line
+       do
+         echo "deleting souce file: $line"
+         rm -rf $line
+
+       done <<< $Files
+    else
+       echo -e "zip files created..$R failed $N"
+       exit 1
+
 fi
