@@ -60,7 +60,7 @@ fi
 
 Files=$(find $Source -name "*.log" -mtime $Days)
 
-if [ z $Files ]
+if [ -z $Files ]
 then
     echo -e " $Y no files are found $N"
 else
