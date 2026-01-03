@@ -37,6 +37,6 @@ Files_to_delete=$(find $Source_Dir -name "*.log" -mtime +14) | tee -a $Logs_file
 
 while IFS= read -r line
 do
-    echo "Deleting file: $line" | tee -a $Logs_file
-    rm -rf $line | tee -a $Logs_file
+    echo "Deleting file: $line" 
+    rm -rf $line 
 done <<< $Files_to_delete
