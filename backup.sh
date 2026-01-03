@@ -64,5 +64,5 @@ if [  -z $Files ]
 then
     echo -e " $Y  no files are found: $N"
 else
-    echo -e " $G files are found" $Files $N"
+    echo -e " $G files are found: $Files $N"
 fi
