@@ -72,7 +72,8 @@ else
     if [ -f $Zip_File ]
     then
        echo -e "zip file created..$G successfully $N"
-       while IFS=read -r line
+       
+       while IFS= read -r line
        do
          echo "deleting souce file: $line"
          rm -rf $line
