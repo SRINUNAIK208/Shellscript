@@ -1,4 +1,9 @@
-#!/bin/bash
+#/bin/bash
+
+Source="$1"
+Destination="$2"
+Days=${3:-14}
+
 
 UserId=$(id -u)
 R="\e[31m"
@@ -30,13 +35,25 @@ VALIDATE(){
     fi
 }
 
+if [ $# -lt 2 ]
+then
+   echo -e "$R atleast pass 2 Paramater $N"
+else
+   echo -e "$G passed 2 paramater $ N"
+fi
 
-Source_Dir=/home/ec2-user/
+if [ -d $Source ]
+then 
+    echo -e "$G source $Source directory is exit $N"
+else
+    echo -e "$R source $Source directory is not exist $N"
+    exit 1
+fi
 
-Files_to_delete=$(find $Source_Dir -name "*.log" -mtime +14) | tee -a $Logs_file
-
-while IFS= read -r line
-do
-    echo "Deleting file: $line" 
-    rm -rf $line 
-done <<< $Files_to_delete
+if [ -d $Destination ]
+then 
+    echo -e "$G source $Destination directory is exit $N"
+else
+    echo -e "$R source $Destination directory is not exist $N"
+    exit 1
+fi
