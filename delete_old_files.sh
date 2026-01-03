@@ -11,7 +11,8 @@ Script_Name="$(echo $0 | cut -d "." -f1)"
 Logs_file="$Logs_Folder/$Script_Name.log"
 
 mkdir -p $Logs_Folder
-if [ UserId -eq 0 ]
+
+if [ $UserId -eq 0 ]
 then
     echo -e  "$G user have root access $N" | tee -a $Logs_file
 else
