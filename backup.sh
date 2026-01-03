@@ -69,7 +69,7 @@ else
     Zip_File="$Destination/app-log-$TimeStamp.zip"
     echo $Files | zip -@ $Zip_File
 
-    if[ -f $Zip_File ]
+    if [ -f $Zip_File ]
     then
        echo -e "zip file created..$G successfully $N"
        while IFS=read -r line
@@ -81,5 +81,6 @@ else
     else
        echo -e "zip files created..$R failed $N"
        exit 1
+    fi
 
 fi
