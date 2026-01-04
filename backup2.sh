@@ -25,7 +25,7 @@ then
 else
    echo "files are found:: $Files"
    TimeStamp=$(date +%F-%H-%M-%S)
-   Zip_File="$Destination/app-log/$TimeStamp.zip"
+   Zip_File="$Destination/$TimeStamp.zip"
    find $Source -name "*.log" -mtime +$Days | zip -@ $Zip_File
 
    if [ -f $Zip_File ]
