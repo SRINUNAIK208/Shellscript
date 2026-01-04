@@ -31,7 +31,7 @@ else
    if [ -f $Zip_File ]
    then
       echo "zip file is created successfully"
-      while IFS=read -r line
+      while IFS= read -r line
       do 
         echo "deleting files: $line"
         rm -rf $line
