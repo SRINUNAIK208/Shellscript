@@ -17,7 +17,7 @@ else
     echo -e "Source directory $Destination is not exists"
 fi
    
-Files=$(find $Source -name "*.log" -mtime +Days)
+Files=$(find $Source -name "*.log" -mtime +$Days)
 
 if [ -z $Files ]
 then 
