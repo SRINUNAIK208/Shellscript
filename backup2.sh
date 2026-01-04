@@ -35,7 +35,7 @@ else
       do 
         echo "deleting files: $line"
         rm -rf $line
-      do <<< $Files
+      done <<< $Files
    else
       echo "zip file is create failed"
     fi
